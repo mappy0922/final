@@ -1,0 +1,248 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0F172A;
+}
+
+h1 {
+    margin-left: 30px;
+    font-family: serif;
+    color: rgb(227, 230, 208);
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    /* 好きな値でOK */
+}
+
+.sleep-icon {
+    display: inline-block;
+    margin-left: 12px;
+    animation: sleep 3s ease-in-out infinite;
+}
+
+@keyframes sleep {
+    0% {
+        transform: translateY(5px) rotate(-5deg);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(5deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(5px) rotate(-5deg);
+        opacity: 0.6;
+    }
+}
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    z-index: 9999;
+
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+}
+
+.loading-icon {
+    font-size: 70px;
+    animation: loadingSleep 1.5s ease-in-out infinite;
+}
+
+.loading-screen p {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+@keyframes loadingSleep {
+    0% {
+        transform: translateY(10px) rotate(-5deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(10px) rotate(-5deg);
+        opacity: 0.5;
+    }
+}
+
+/* メイン画面 */
+.main-hidden {
+    opacity: 0;
+}
+
+.main-visible {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+.guideOverlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, .55);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.guideModal {
+    position: relative;
+    width: 700px;
+    max-width: 90%;
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 35px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .3);
+
+    animation: popup .25s;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.guideModal h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.guideModal p,
+.guideModal li {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.guideImage {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+.guideButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.guideButtons button {
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.Legend {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 100;
+}
+
+.legendButton {
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+    color: #E2E8F0;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.legendButton:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.legendMenu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 130px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.legendMenu button {
+    width: 100%;
+    height: 30px;
+    font-size: 13px;
+    background: none;
+    border: none;
+}
+
+.bedtime {
+    background: rgb(227, 230, 208);
+    border: 3px solid black;
+    border-radius: 99px;
+    /* 角丸 */
+    box-shadow: 0 4px 6px #0003;
+    /* 影 */
+    min-height: 600px;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 10px;
+    margin: 50px 50px 0 50px;
+    box-sizing: border-box;
+}
+
+.legend {
+    background: rgb(227, 230, 208);
+    border: 3px solid black;
+    border-radius: 999px;
+    /* 角丸 */
+    box-shadow: 0 4px 6px #0003;
+    /* 影 */
+    min-height: 100px;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 0px;
+    margin: 15px 50px 0 50px;
+    box-sizing: border-box;
+}
