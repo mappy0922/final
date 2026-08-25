@@ -769,3 +769,288 @@ button {
 .sleep-graph svg {
     overflow: visible;
 }
+
+/* ==========================================
+   ランキング
+========================================== */
+
+.ranking-section {
+    width: min(900px, 90%);
+    margin: 60px auto 50px;
+    padding: 30px 35px 40px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    border-radius: 25px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.ranking-section h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    font-size: 24px;
+}
+
+
+.ranking-description {
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   ランキング一覧
+========================================== */
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* ==========================================
+   ランキング1行
+========================================== */
+
+.ranking-item {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 72px;
+
+    padding: 10px 20px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    border-radius: 15px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 3px 8px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        opacity 0.35s ease;
+}
+
+
+.ranking-item:hover {
+    transform: translateX(6px);
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ==========================================
+   順位
+========================================== */
+
+.ranking-number {
+    width: 55px;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    color: #475569;
+
+    flex-shrink: 0;
+}
+
+
+/* 1位 */
+
+.ranking-number.rank-1 {
+    font-size: 30px;
+
+    color: #D4A72C;
+}
+
+
+/* 2位 */
+
+.ranking-number.rank-2 {
+    font-size: 28px;
+
+    color: #64748B;
+}
+
+
+/* 3位 */
+
+.ranking-number.rank-3 {
+    font-size: 27px;
+
+    color: #A16207;
+}
+
+
+/* ==========================================
+   都道府県
+========================================== */
+
+.ranking-prefecture {
+    flex: 1;
+
+    margin-left: 15px;
+}
+
+
+.ranking-prefecture-name {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #111827;
+}
+
+
+.ranking-sleep {
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #64748B;
+}
+
+
+.ranking-sleep strong {
+    margin-left: 7px;
+
+    margin-right: 3px;
+
+    color: #4F46E5;
+
+    font-size: 18px;
+}
+
+
+/* ==========================================
+   順位変化
+========================================== */
+
+.ranking-change {
+    min-width: 120px;
+
+    text-align: right;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* 上昇 */
+
+.rank-up {
+    color: #16A34A;
+}
+
+
+/* 下降 */
+
+.rank-down {
+    color: #DC2626;
+}
+
+
+/* 変化なし */
+
+.rank-same {
+    color: #64748B;
+}
+
+
+/* ==========================================
+   データなし
+========================================== */
+
+.ranking-empty {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #64748B;
+}
+
+
+/* ==========================================
+   スマホ
+========================================== */
+
+@media (max-width: 700px) {
+
+    .ranking-section {
+        width: 94%;
+
+        padding: 25px 15px 30px;
+    }
+
+
+    .ranking-section h2 {
+        font-size: 19px;
+    }
+
+
+    .ranking-item {
+        padding: 10px;
+
+        min-height: 65px;
+    }
+
+
+    .ranking-number {
+        width: 40px;
+
+        font-size: 20px;
+    }
+
+
+    .ranking-prefecture {
+        margin-left: 5px;
+    }
+
+
+    .ranking-prefecture-name {
+        font-size: 15px;
+    }
+
+
+    .ranking-sleep {
+        font-size: 11px;
+    }
+
+
+    .ranking-sleep strong {
+        font-size: 15px;
+    }
+
+
+    .ranking-change {
+        min-width: 90px;
+
+        font-size: 11px;
+    }
+
+}
