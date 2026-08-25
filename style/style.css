@@ -99,6 +99,10 @@ h2 {
     transition: opacity 0.8s ease;
 }
 
+/* ==========================================
+   チュートリアル背景
+========================================== */
+
 .guideOverlay {
     position: fixed;
     inset: 0;
@@ -110,12 +114,26 @@ h2 {
     align-items: center;
 
     z-index: 9999;
+
+    /* 画面端に少し余白 */
+    padding: 20px;
+
+    box-sizing: border-box;
 }
+
+
+/* ==========================================
+   チュートリアル本体
+========================================== */
 
 .guideModal {
     position: relative;
-    width: 700px;
-    max-width: 90%;
+
+    width: 900px;
+    max-width: 100%;
+
+    /* 画面からはみ出さない */
+    max-height: calc(100vh - 40px);
 
     background: white;
 
@@ -126,7 +144,16 @@ h2 {
     box-shadow: 0 15px 40px rgba(0, 0, 0, .3);
 
     animation: popup .25s;
+
+    /* 重要 */
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
 }
+
 
 @keyframes popup {
     from {
@@ -140,10 +167,22 @@ h2 {
     }
 }
 
+
+/* ==========================================
+   チュートリアル見出し
+========================================== */
+
 .guideModal h2 {
     margin-top: 0;
     text-align: center;
+
+    flex-shrink: 0;
 }
+
+
+/* ==========================================
+   チュートリアル本文
+========================================== */
 
 .guideModal p,
 .guideModal li {
@@ -151,23 +190,178 @@ h2 {
     line-height: 1.8;
 }
 
+
+/* ==========================================
+   チュートリアル画像
+========================================== */
+
 .guideImage {
     width: 100%;
+
+    max-width: 100%;
+
+    height: auto;
+
     margin: 20px 0;
+
     border-radius: 10px;
+
+    display: block;
 }
+
+
+/* ==========================================
+   チュートリアル動画
+========================================== */
+
+.guideVideo {
+    width: 100%;
+
+    height: auto;
+
+    max-height: 40vh;
+
+    object-fit: contain;
+
+    margin: 20px 0;
+
+    border-radius: 10px;
+
+    display: block;
+}
+
+
+/* ==========================================
+   チュートリアルボタン
+========================================== */
 
 .guideButtons {
     display: flex;
+
     justify-content: space-between;
     align-items: center;
+
     margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #E5E7EB;
+
+    /* ボタンが縮まないようにする */
+    flex-shrink: 0;
 }
+
 
 .guideButtons button {
     padding: 10px 25px;
+
     font-size: 16px;
+
     cursor: pointer;
+}
+
+
+/* ==========================================
+   ノートPCなど縦幅が小さい画面
+========================================== */
+
+@media (max-height: 800px) {
+
+    .guideOverlay {
+        padding: 10px;
+    }
+
+    .guideModal {
+        max-height: calc(100vh - 20px);
+
+        padding: 25px;
+    }
+
+    .guideModal h2 {
+        font-size: 20px;
+
+        margin-bottom: 10px;
+    }
+
+    .guideModal p,
+    .guideModal li {
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    .guideImage {
+        max-height: 35vh;
+
+        object-fit: contain;
+
+        margin: 10px 0;
+    }
+
+    .guideVideo {
+        max-height: 30vh;
+
+        margin: 10px 0;
+    }
+
+    .guideButtons {
+        margin-top: 10px;
+
+        padding-top: 10px;
+    }
+
+    .guideButtons button {
+        padding: 8px 18px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* ==========================================
+   さらに縦幅が小さい画面
+========================================== */
+
+@media (max-height: 650px) {
+
+    .guideModal {
+        padding: 18px 20px 12px;
+    }
+
+    .guideModal h2 {
+        font-size: 18px;
+    }
+
+    .guideModal p,
+    .guideModal li {
+        font-size: 13px;
+
+        line-height: 1.4;
+    }
+
+    .guideImage {
+        max-height: 25vh;
+
+        margin: 5px 0;
+    }
+
+    .guideVideo {
+        max-height: 22vh;
+
+        margin: 5px 0;
+    }
+
+    .guideButtons {
+        margin-top: 5px;
+
+        padding-top: 8px;
+    }
+
+    .guideButtons button {
+        padding: 6px 15px;
+
+        font-size: 13px;
+    }
 }
 
 button {
@@ -224,25 +418,354 @@ button {
     /* 角丸 */
     box-shadow: 0 4px 6px #0003;
     /* 影 */
-    min-height: 600px;
+    min-height: 700px;
     height: auto;
-    margin-bottom: 30px;
     padding: 10px;
-    margin: 50px 50px 0 50px;
+    margin: 50px 50px 30px 50px;
     box-sizing: border-box;
 }
 
-.legend {
-    background: rgb(227, 230, 208);
-    border: 3px solid black;
-    border-radius: 999px;
-    /* 角丸 */
-    box-shadow: 0 4px 6px #0003;
-    /* 影 */
-    min-height: 100px;
-    height: auto;
-    margin-bottom: 30px;
-    padding: 0px;
-    margin: 15px 50px 0 50px;
-    box-sizing: border-box;
+/* ==========================================
+   男女切り替え
+========================================== */
+
+.graph-toggle {
+    position: relative;
+
+    display: flex;
+
+    width: fit-content;
+
+    margin: 30px auto;
+
+    border: 2px solid #818CF8;
+    border-radius: 9999px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* ==========================================
+   スライドする紫色の背景
+========================================== */
+
+.gender-slider {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 33.3333%;
+    height: 100%;
+
+    background: #818CF8;
+
+    border-radius: 9999px;
+
+    transition:
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+    z-index: 0;
+}
+
+
+/* 男 → 左 */
+
+.graph-toggle.gender-man .gender-slider {
+    transform: translateX(0%);
+}
+
+
+/* 女 → 中央 */
+
+.graph-toggle.gender-woman .gender-slider {
+    transform: translateX(100%);
+}
+
+
+/* 男女 → 右 */
+
+.graph-toggle.gender-both .gender-slider {
+    transform: translateX(200%);
+}
+
+
+/* ==========================================
+   ボタン
+========================================== */
+
+.toggle-btn {
+    position: relative;
+
+    z-index: 1;
+
+    width: 200px;
+    height: 60px;
+
+    padding: 10px 30px;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    color: #CBD5E1;
+
+    transition:
+        color 0.25s ease,
+        transform 0.15s ease;
+}
+
+
+/* 選択中の文字を白にする */
+
+.gender-man .toggle-btn:nth-of-type(1),
+.gender-woman .toggle-btn:nth-of-type(2),
+.gender-both .toggle-btn:nth-of-type(3) {
+    color: #FFFFFF;
+}
+
+
+/* ホバー */
+
+.toggle-btn:hover {
+    color: #FFFFFF;
+}
+
+
+/* 押した瞬間 */
+
+.toggle-btn:active {
+    transform: scale(0.97);
+}
+
+/* ==========================================
+   年度切り替え
+========================================== */
+
+.year-toggle {
+    position: relative;
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    width: fit-content;
+
+    margin: 20px 0 20px 30px;
+
+    border: 2px solid #818CF8;
+
+    border-radius: 9999px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    padding: 0;
+
+    isolation: isolate;
+}
+
+
+/* スライドする背景 */
+
+.year-slider {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background: #818CF8;
+
+    border-radius: 9999px;
+
+    z-index: -1;
+
+    transition:
+        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ボタン */
+
+.year-btn {
+    position: relative;
+
+    min-width: 110px;
+    height: 44px;
+
+    padding: 6px 20px;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #CBD5E1;
+
+    transition:
+        color 0.3s ease;
+}
+
+.year-btn:hover {
+    color: white;
+}
+
+.year-btn.active {
+    color: #FFFFFF;
+}
+
+
+/* ==========================================
+   男女切り替え
+========================================== */
+
+.graph-toggle {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    width: fit-content;
+
+    margin: 30px auto;
+
+    border: 2px solid #818CF8;
+
+    border-radius: 9999px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    isolation: isolate;
+}
+
+
+/* スライドする背景 */
+
+.gender-slider {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: calc(100% / 3);
+    height: 100%;
+
+    background: #818CF8;
+
+    border-radius: 9999px;
+
+    z-index: -1;
+
+    transition:
+        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* 男女ボタン */
+
+.toggle-btn {
+    position: relative;
+
+    min-width: 200px;
+
+    height: 60px;
+
+    padding: 10px 30px;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #CBD5E1;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.toggle-btn:hover {
+    color: white;
+}
+
+
+/* ==========================================
+   グラフアニメーション
+========================================== */
+
+
+/*
+ * 折れ線を滑らかに変形
+ */
+
+.sleep-line {
+    transition:
+        d 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/*
+ * データポイント
+ */
+
+.data-circle {
+    transition:
+        cx 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        cy 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        r 0.2s ease,
+        stroke 0.2s ease;
+}
+
+
+/*
+ * 睡眠時間の数字
+ */
+
+.sleep-value {
+    transition:
+        x 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        y 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/*
+ * グリッド・Y軸
+ */
+
+.chart-axis line,
+.chart-axis text {
+    transition:
+        y 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/*
+ * SVG自体の描画を滑らかに
+ */
+
+.sleep-graph svg {
+    overflow: visible;
 }
