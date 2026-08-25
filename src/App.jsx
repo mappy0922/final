@@ -778,7 +778,8 @@ export default function App() {
                         <svg
                             viewBox={`0 0 ${chartWidth} ${chartHeight}`}
                             width="100%"
-                            height="600"
+                            height="auto"
+                            preserveAspectRatio="xMidYMid meet"
                         >
 
                             {/* =================================

@@ -1054,3 +1054,41 @@ button {
     }
 
 }
+
+/* ==========================================
+   睡眠時間グラフ
+========================================== */
+
+.sleep-graph {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    box-sizing: border-box;
+    padding: 0 20px 0 40px;
+}
+
+.sleep-graph svg {
+    display: block;
+    width: 100%;
+    min-width: 1000px;
+    height: auto;
+    overflow: visible;
+}
+
+/* ==========================================
+   ノートPC・小さめの画面
+========================================== */
+
+@media (max-width: 1200px) {
+
+    .bedtime {
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+    .sleep-graph {
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+
+}
